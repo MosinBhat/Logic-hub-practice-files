@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(33, 33, 33);
+            color: aliceblue;
+            
+        }
+        :root{
+            font-size: 16px;
+
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calculator{
+            width: 450px;
+            height: 550px;
+            border: 0.5px solid rgb(50, 50, 50);
+            box-shadow: 0px 0px 10px 5px rgb(43, 43, 43);
+            border-radius: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+            
+        }
+        .input{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            padding: 10px;
+        }
+        .input>p{
+            text-align: right;
+            font-size: 2rem;
+            overflow: auto;
+            scrollbar-width: thin;
+            
+        }
+        .mainKeys{
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .mainKeys>ul{
+            margin-top: 25px;
+            width: 100%;
+            
+            display: grid;
+            grid-template-columns: 20% 20% 20% 20%;
+            grid-template-rows: 23% 23% 23% 23% 23%;
+            justify-content: center;
+            align-items: end;
+            text-align: center;
+            gap: 20px;
+        }
+        .keys{
+            width: 100%;
+            height: 100%;
+            list-style-type: none;
+            font-size: 1.5rem;
+            padding: 5px;
+            border: none;
+            border-radius: 50%;
+            box-shadow: -6px -6px 12px rgba(255, 255, 255, 0.03), 6px 6px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 200ms linear all 0s;
+        }
+        .keys:active{
+
+            transform: scale(0.9);
+            box-shadow: inset -0px -0px 0px;
+
+        }
+        #equal{
+            background-color: coral;
+            color: white;
+        }
+        #ac{
+            color: red;
+        }
+        #del{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <main class="calculator">
+        <div class="input"><p id="show"></p></div>
+        <div class="mainKeys">
+            <ul>
+                <li class="keys" id="ac">AC</li>
+                <li class="keys" id="del">DEL</li>
+                <li class="keys keywords">%</li>
+                <li class="keys keywords">/</li>
+                <li class="keys keywords">7</li>
+                <li class="keys keywords">8</li>
+                <li class="keys keywords">9</li>
+                <li class="keys keywords">*</li>
+                <li class="keys keywords">4</li>
+                <li class="keys keywords">5</li>
+                <li class="keys keywords">6</li>
+                <li class="keys keywords">-</li>
+                <li class="keys keywords">1</li>
+                <li class="keys keywords">2</li>
+                <li class="keys keywords">3</li>
+                <li class="keys keywords">+</li>
+                <li class="keys keywords">00</li>
+                <li class="keys keywords">0</li>
+                <li class="keys keywords">.</li>
+                <li class="keys" id="equal">=</li>
+            </ul>
+        </div>
+    </main>
+    
+
+    <script>
+        let show = document.querySelector("#show");
+        let keywords = document.querySelectorAll(".keywords");
+        let ac = document.querySelector("#ac")
+        let del = document.querySelector("#del")
+        let equal = document.querySelector("#equal")
+
+        keywords.forEach(key => {
+        key.addEventListener("click", (clicked) => show.innerText += clicked.target.innerText);
+        })
+
+        ac.addEventListener("click", () => show.innerText = "");
+        del.addEventListener("click", () => show.innerText = show.innerText.slice(0,-1));
+
+        equal.addEventListener("click", () =>{
+            try{
+                show.innerText = eval(show.innerText);
+            }
+            catch{
+                show.innerText = "Error";
+                
+            }
+        } )
+
+
+
+
+    </script>
+</body>
+</html>

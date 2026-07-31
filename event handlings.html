@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="firstEvent()">click using Html</button>
+    <button id="usingJava">click using javascript</button>
+    <button id="usingAddEventJava">click using addeventlistner</button>
+
+
+
+    <script>
+
+        //HTML attribute on...
+        function firstEvent(){
+
+            console.log("Using HTML attribute");
+
+        }
+
+
+        //on Javascript using same attribute on...
+        let usingJava = document.querySelector("#usingJava");
+        usingJava.onclick =  () => console.log("Using Java Script");
+
+        
+
+        //on Javascript using eventAddListener
+        let usingAddEventJava = document.querySelector("#usingAddEventJava")
+        function secondEvent(){
+
+            console.log("Using addEventListner");
+
+        }
+
+        usingAddEventJava.addEventListener("click",secondEvent);
+        
+        
+
+
+
+    </script>
+    
+</body>
+</html>

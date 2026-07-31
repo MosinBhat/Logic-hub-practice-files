@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <ul id="nav">
+
+            <li class="list">Hame</li>
+            <li class="list">Contact</li>
+            <li class="list">About Us</li>
+            <li class="list">Login</li>
+
+        </ul>
+
+
+
+
+    </div>
+</body>
+
+<script>
+
+    let nav = document.querySelector("#nav");
+    nav.style.backgroundColor=("red")
+    nav.style.width=("100vw")
+    nav.style.height=("50px")
+
+    let navList = document.querySelectorAll("#nav>li");
+    for(let i=0; i < navList.length; i++){
+        
+        navList[i].style.display=("inline-block");
+        navList[i].style.fontSize=("1.5rem");
+        navList[i].style.width=("20%");
+        navList[i].style.padding=("10px 0 0 73px");
+
+
+    }
+    console.dir(navList)
+
+
+
+</script>
+
+</html>

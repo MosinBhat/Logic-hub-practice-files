@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        width: 100vw;
+        height: 400px;
+        overflow: auto;
+      }
+      table > thead {
+        font-size: 1.5rem;
+        background-color: cornflowerblue;
+        text-align: center;
+        font-weight: bolder;
+      }
+      table > tbody {
+        font-size: 1.3rem;
+        background-color: rgb(145, 177, 236);
+        text-align: center;
+        font-weight: bold;
+      }
+      div {
+        text-align: center;
+        background-color: antiquewhite;
+      }
+      div > input {
+        text-align: center;
+        padding: 5px;
+        margin: 20px 0 20px 4px;
+        border: 2px solid black;
+      }
+      div > button{
+        font-size: 1.1rem;
+        padding: 5px;
+        margin-bottom: 20px;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="inputFirstName" placeholder="First Name Here" />
+      <input type="text" id="inputLastName" placeholder="Last Name Here" />
+      <input type="text" id="inputContact" placeholder="Contact Here" />
+      <input type="text" id="inputSalary" placeholder="Salary Here" />
+      <input type="text" id="inputIndex" placeholder="Index Here" />
+    </div>
+    <div>
+      <button onclick="addEmployee()">Add New Employee</button>
+      <button onclick="removeEmployee()">Remove any employee</button>
+      <input type="text" id="search">
+      <button id="searchBtn">search</button>
+    </div>
+    <table border="1px">
+      <thead>
+        <tr>
+          <td>First Name <button onclick="ascOrderN()">Up</button><button onclick="descOrderN()">Down</button></td>
+          <td>Last Name</td>
+          <td>Contact</td>
+          <td>Salary <button onclick="ascOrderS()">Up</button><button onclick="descOrderS()">Down</button></td>
+        </tr>
+      </thead>
+      <tbody id="tBody">
+
+      </tbody>
+    </table>
+
+    <script>
+
+      let inputFirstName = document.querySelector("#inputFirstName")
+      let inputLastName = document.querySelector("#inputLastName")
+      let inputContact = document.querySelector("#inputContact")
+      let inputSalary = document.querySelector("#inputSalary")
+      let inputIndex = document.querySelector("#inputIndex")
+      let tBody = document.querySelector("#tBody")
+      let search = document.querySelector("#search")
+      
+
+      let employeeData = [{
+        firstName: "hamza",
+        lastName: "munir",
+        contact: 998766543,
+        salary: 20000,
+      },
+      {
+        firstName: "akansha",
+        lastName: "khajuria",
+        contact: 898953634,
+        salary: 40000,
+      },
+      {
+        firstName: "irtiqa",
+        lastName: "baloch",
+        contact: 89876789,
+        salary: 70000,
+      },
+      {
+        firstName: "selish",
+        lastName: "khokher",
+        contact: 975359067,
+        salary: 70444,
+      },
+      {
+        firstName: "khushi",
+        lastName: "sharma",
+        contact: 768009854,
+        salary: 67780,
+      },
+      {
+        firstName: "zubair",
+        lastName: "shabir",
+        contact: 768009854,
+        salary: 67780,
+      },
+      ]
+
+      function insertEmployees(){
+        let tRow = "";
+        for(let singleData of employeeData){
+            tRow += 
+            `<tr>
+                <td>${singleData.firstName}</td>
+                <td>${singleData.lastName}</td>
+                <td>${singleData.contact}</td>
+                <td>${singleData.salary}</td>
+            </tr>` 
+        }
+        tBody.innerHTML = tRow;
+      }
+      insertEmployees()
+
+      function getemployee(){
+        let newEmp = {
+          firstName: inputFirstName.value,
+          lastName: inputLastName.value,
+          contact: inputContact.value,
+          salary: inputSalary.value,
+        }
+        return newEmp;
+      }
+
+      function addEmployee(){
+        employeeData.splice(inputIndex.value,0,getemployee())
+        insertEmployees()
+      }
+      function removeEmployee(){
+        employeeData.splice(inputIndex.value,1)
+        insertEmployees()
+      }
+      //object sorting by salary(number)
+      function ascOrderS(){
+        employeeData.sort((a,b)=> a.salary - b.salary);
+        insertEmployees()
+      }
+      function descOrderS(){
+        employeeData.sort((a,b)=> b.salary - a.salary);
+        insertEmployees()
+      }
+      //object sorting by name(string)
+      function ascOrderN(){
+        employeeData.sort((a,b)=> a.firstName.localeCompare(b.firstName));
+        insertEmployees()
+      }
+      function descOrderN(){
+        employeeData.sort((a,b)=> b.firstName.localeCompare(a.firstName));
+        insertEmployees()
+      }
+
+
+
+
+      //search using filter and event handling
+      search.addEventListener("change", (change) => {
+        let searchFor = change.target.value;
+        let searchRe = employeeData.filter((empp)=> empp.firstName.startsWith(searchFor))
+        employeeData = searchRe;
+        insertEmployees();
+      } )
+      // employeeData.filter(...) goes through each element of the employeeData array.
+      // For every element, it runs the function you provide.
+      // That element is temporarily passed into the function as a parameter
+    </script>
+  </body>
+</html>

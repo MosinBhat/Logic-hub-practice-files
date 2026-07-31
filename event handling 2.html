@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #parent{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #child{
+            width: 400px;
+            height: 400px;
+            background-color: antiquewhite;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child">
+
+        </div>
+    </div>
+
+    <script>
+
+        let child = document.querySelector("#child");
+
+
+        //1. on-click
+        child.onclick= () => child.style.backgroundColor="grey";
+
+        //2. on-mouse-enter
+        child.onmouseenter= () => {
+            child.style.height="500px";
+            child.style.width="500px";
+        }
+
+        //3. on-mouse-leave
+        child.onmouseleave= () => {
+            child.style.height="400px";
+            child.style.width="400px";
+        }
+
+        //4. on-mouse-move
+        child.onmousemove= (event) => event.target.innerHTML=` X: ${event.clientX} Y: ${event.clientY}`;
+
+        //5. on-double-click
+        child.ondblclick= () => child.style.backgroundColor="antiquewhite";
+
+        //6. on-mouse-down
+        child.onmousedown= () => child.style.boxShadow="inset 0 0 10px grey"
+
+        //7. on-mouse-up
+        child.onmouseup= () => child.style.boxShadow="inset 0 0 0"
+
+
+    </script>
+    
+</body>
+</html>

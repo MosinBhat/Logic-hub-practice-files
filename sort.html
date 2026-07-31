@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //normal sorting upto 10 digits
+        let arr = [9,8,7,6,5,4,3,2,1];
+        let sortedArr = arr.sort();
+        console.log(sortedArr)
+        //swaping method for the array exceeding 10 digits
+        let arr2 = [9,8,7,6,5,4,3,2,1,32,11,56,78,54,29,95,34];
+        let sortedArr2 = arr2.sort((a,b)=> a-b);
+        console.log(sortedArr2)
+        //sorting of string
+        let arr3 = ["mosin","heema","hamza","akshita","zubair","vaibhav","bushra","diksha", "irtiqa"]
+        let sortedArr3 = arr3.sort();
+        console.log(sortedArr3)
+        //sorting of string reverse order
+        let arr4 = ["mosin","heema","hamza","akshita","zubair","vaibhav","bushra","diksha", "irtiqa"]
+        let sortedArr4 = arr4.sort();
+        console.log(sortedArr4.reverse())
+    </script>
+</body>
+</html>

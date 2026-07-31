@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        
+        // function sum(n1){
+
+        //     let res = n1 + n1;
+        //     console.log("Sum of n1 + n1",res);
+            
+        // }
+        // function sub(n1,fun){
+        //     fun(n1)
+        //     let res = n1 - n1;
+        //     console.log("Sub of n1 - n1",res);
+            
+        // }
+        // function mul(n1,fun){
+
+        //     fun(n1,sum)
+        //     let res = n1 * n1;
+        //     console.log("Mul of n1 * n1",res);
+            
+        // }
+        // function div(n1,fun){
+
+        //     fun(n1,sub);
+        //     let res = n1 / n1;
+        //     console.log("Div of n1 / n1",res);
+            
+        // }
+        // function mol(n1,fun){
+
+        //     fun(n1,mul);
+        //     let res = n1 % n1;
+        //     console.log("mol of n1 % n1",res);
+            
+        // }
+        // mol(20,div);
+
+
+
+
+
+
+
+
+
+
+
+        // function sum (x,y){
+
+        //     let res = x + y;
+        //     console.log("the result of sum", res);
+        // }
+        // function sub (x,y){
+
+        //     let res = x - y;
+        //     console.log("the result of sub", res);
+        // }
+        // function mul (x,y){
+
+        //     let res = x * y;
+        //     console.log("the result of mul", res);
+        // }
+        // function div (x,y){
+
+        //     let res = x / y;
+        //     console.log("the result of div", res);
+        // }
+        // function mod (x,y){
+
+        //     let res = x % y;
+        //     console.log("the result of mod", res);
+        // }
+
+        // function calculation (x,y,fun){
+
+        //     fun(x,y)
+
+        // }
+        // calculation(40,60,sum)
+        // calculation(400,200,sub)
+        // calculation(10,50,mul)
+        // calculation(40,80,div)
+        // calculation(10,9,mod)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        // let init = 4;
+        // function sum(n1){
+
+        //     let res = n1 + n1;
+        //     console.log("Sum of n1 + n1",res);
+            
+        // }
+        // function sub(n1){
+        //     sum(init)
+        //     let res = n1 - n1;
+        //     console.log("Sub of n1 - n1",res);
+            
+        // }
+        // function mul(n1){
+        //     sub(init)
+        //     let res = n1 * n1;
+        //     console.log("Mul of n1 * n1",res);
+            
+        // }
+        // function div(n1){
+        //     mul(init)
+        //     let res = n1 / n1;
+        //     console.log("Div of n1 / n1",res);
+            
+        // }
+        // function mol(n1){
+
+        //     div(init)
+        //     let res = n1 % n1;
+        //     console.log("mol of n1 % n1",res);
+            
+        // }
+        // mol(init);
+
+
+
+
+    function fun5(a,b) {
+        let re = a-b
+        return re;
+
+    }
+
+    function fun4(a,b) {
+        let re = a+b
+        let frwd = fun5(re,a)
+        return frwd;
+
+    }
+
+    function fun3(a,b,c) {
+        let re = a/c*b
+        let frwd = fun4(a,re)
+        return frwd;
+
+    }
+
+    function fun2(a,b) {
+        let re = a*b
+        let frwd = fun3(re,a,50)
+        return frwd;
+
+    }
+
+    function fun1(a,b) {
+        let re = a+b
+        let frwd = fun2(re,b)
+        return frwd;
+
+    }
+
+    let result = fun1(20,40);
+    console.log('Final result is ',result);
+
+
+    </script>
+    
+</body>
+</html>

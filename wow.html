@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        div{
+            width: 400px;
+            height: 100px;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 100px auto;
+
+            box-sizing: content-box;
+            background-color: red;
+        }
+        p{
+            width: 50%;
+            height: 50px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <div>
+        <p>My name is mosin and i want to play pickle ball with hamza for some good time</p>
+    </div>
+    <script>
+
+
+        function add(a,b){
+            console.log("the value of A is ", a)
+            console.log("the value of B is ", b)
+
+            var result = a + b;
+            console.log(result);
+        }
+        
+        add (50,60);
+
+        function sub(a,b){
+            console.log("the value of A is ", a)
+            console.log("the value of B is ", b)
+
+            var result = a - b;
+            console.log(result);
+        }
+        
+        sub (50,20);
+
+        function mul(a,b){
+            console.log("the value of A is ", a)
+            console.log("the value of B is ", b)
+
+            var result = a * b;
+            console.log(result);
+        }
+        
+        mul (50,10);
+
+        function div(a,b){
+            console.log("the value of A is ", a)
+            console.log("the value of B is ", b)
+
+            var result = a / b;
+            console.log(result);
+        }
+        
+        div (50,2);
+
+        function mod(a,b){
+            console.log("the value of A is ", a)
+            console.log("the value of B is ", b)
+
+            var result = a % b;
+            console.log(result);
+        }
+        
+        mod (50,10);
+
+
+        function admi(x,y,z){
+
+            console.log("processing...")
+            console.log("processing...")
+            console.log("processing...")
+            return x - y + z + 20
+
+        }
+
+        var wow = admi(10,15,20);
+        console.log(wow);
+
+
+        function isEven(x){
+            
+            return x % 2 === 0;
+
+        }
+        var qwe = isEven(4);
+        console.log(qwe);
+
+        var object = {
+            Name: "mosin",
+            RollNo: 13,
+            Course: "MBA",
+            Department: "Toruism & Travel Management",
+        }
+
+        console.log(object.Department);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="takeInput" value="">
+    <button onclick="inputData()">Input Show</button>
+    <input type="text" id="giveOutput">
+    <p id="show">
+
+    </p>
+    
+
+
+    <script>
+        function inputData(){
+            let takeInput = document.querySelector("#takeInput");
+            let message = takeInput.value;
+            console.log(message);
+            let giveOutput = document.querySelector("#giveOutput")
+            giveOutput.value = message;
+            let show = document.querySelector("#show");
+            show.innerHTML=`<b>${message}</b>`
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input id="inputData" type="text" placeholder="email here">
+    <button onclick="process()">submit</button>
+    </div>
+    <P>Protocal</P>
+    <div id="protocal"> </div>
+    <p>Domain</p>
+    <div id="domain"> </div>
+    <p>Path Name </p>
+    <div id="pathName"> </div>
+
+    <script>
+
+        let inputData = document.querySelector("#inputData");
+        let protocal = document.querySelector("#protocal");
+        let domain = document.querySelector("#domain");
+        let pathName = document.querySelector("#pathName");
+
+
+        function process(){
+            let data = inputData.value;
+            let protocalDataS = data.indexOf('h')
+            let protocalDataE = data.indexOf(':')
+            let domainDataS = data.indexOf('/')
+            let domainDataE = data.lastIndexOf('/')
+            let pathNameData = data.lastIndexOf('i')
+
+            protocal.innerHTML = data.substring(protocalDataS,protocalDataE);
+            domain.innerHTML = data.substring(domainDataS+2,domainDataE-5);
+            pathName.innerHTML = data.substring(pathNameData);
+
+
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            height: 100vh;
+        }
+
+        table>thead {
+            height: 50px;
+            background-color: burlywood;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table>tbody {
+            font-size: 1.3rem;
+            background-color: blanchedalmond;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="txtName" placeholder="Name">
+        <input type="text" id="txtId" placeholder="ID">
+        <select id="dllGender">
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+
+        </select>
+        <input type="text" id="txtSalary" placeholder="Salary">
+        <button onclick="employeeInputPush()">Push</button>
+        <button onclick="employeeInputUnshift()">Unshift</button>
+        <button onclick="employeeInputpop()">Pop</button>
+        <button onclick="employeeInputshift()">Shift</button>
+        <input type="text" id="arrayIndex" placeholder="Array index here">
+        <button onclick="employeeInputSpliceAdd()">Splice Add</button>
+        <button onclick="employeeInputSpliceRemove()">Splice Remove</button>
+        
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Id</td>
+                <td>Gender</td>
+                <td>Salary</td>
+            </tr>
+        </thead>
+        <tbody id="employeeData">
+
+
+        </tbody>
+    </table>
+    <script>
+
+        let employeeList = [{
+
+            name: "Mosin",
+            id: 1,
+            gender: "Male",
+            salary: 70000,
+
+        },
+        {
+
+            name: "Hamza",
+            id: 2,
+            gender: "Male",
+            salary: 90000,
+
+        },
+        {
+
+            name: "Harsh",
+            id: 3,
+            gender: "Male",
+            salary: 70000,
+
+        },
+        {
+
+            name: "Heema",
+            id: 4,
+            gender: "Female",
+            salary: 50000,
+
+        },
+        {
+
+            name: "Sanjana",
+            id: 5,
+            gender: "Female",
+            salary: 30000,
+
+        },
+        {
+
+            name: "Harish",
+            id: 6,
+            gender: "Male",
+            salary: 7000,
+
+        }];
+
+        let txtName = document.getElementById("txtName")
+        let txtId = document.getElementById("txtId")
+        let dllGender = document.getElementById("dllGender")
+        let txtSalary = document.getElementById("txtSalary")
+        let employeeData = document.getElementById("employeeData");
+        let arrayIndex = document.getElementById("arrayIndex");
+
+
+        function loadEmployees() { //function of inserting data in HTML through JS(dynamic data)
+            
+            let trList = "";
+            for (let employee of employeeList) {
+
+                trList +=
+                 `<tr>
+                    <td>${employee.name}</td>    
+                    <td>${employee.id}</td>    
+                    <td>${employee.gender}</td>    
+                    <td>${employee.salary}</td>    
+                  </tr> `
+                employeeData.innerHTML = trList;
+
+            }
+        }
+        loadEmployees();
+
+        function getValues() { // function of making objects through input
+            
+            // let name = txtName.value; // without making another variable
+            let id = txtId.value;
+            let gender = dllGender.value;
+            let salary = txtSalary.value;
+            
+
+            let newEmployee = {
+                name: txtName.value,
+                id: id,
+                gender: gender,
+                salary: salary,
+            }
+            return newEmployee;
+        }
+        function employeeInputPush() { //.push() inserts at the end of array
+            let newEmp = getValues();
+            employeeList.push(newEmp)
+            loadEmployees();
+        }
+        function employeeInputUnshift() { //.unshift() insert at the start of array
+            let newEmp = getValues();
+            employeeList.unshift(newEmp);
+            loadEmployees();
+        }
+        function employeeInputpop(){ //.pop() Removes the item from end of an array
+
+            employeeList.pop();
+            loadEmployees();
+        }
+        function employeeInputshift(){ //.shift() Removes the item from the start of the array
+
+            employeeList.shift();
+            loadEmployees();
+        }
+
+
+        //.splice(index,remove,actual item) can add or remove item from any index position of array
+        function employeeInputSpliceAdd(){ // adding item through input
+            let newEmp = getValues();
+            let arrIndex = parseInt(arrayIndex.value);
+            employeeList.splice(arrIndex,0,newEmp);
+            loadEmployees();
+        }
+        function employeeInputSpliceRemove(){ // removing item through input
+            let newEmp = getValues();
+            let arrIndex = parseInt(arrayIndex.value);
+            employeeList.splice(arrIndex,1);
+            loadEmployees();
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        table{
+            width: 100vw;
+            height: 100vh;
+        }
+        thead{
+            height: 50px;
+            background-color:burlywood;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        tbody{
+            font-size: 1.3rem;
+            background-color:blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <h1>Students</h1>
+    <table border="1px">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Roll No</td>
+                <td>Class</td>
+                <td>Marks</td>
+            </tr>
+        </thead>
+        <tbody id="myTableBody">
+            <tr>
+                <td>Mosin</td>
+                <td>13</td>
+                <td>7th</td>
+                <td>540</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <script>
+        let student0 = {
+            Name:"Mosin",
+            Roll: 7,
+            Class: "10th",
+            Marks: 464,
+        }
+
+        let student1 = {
+            Name:"Hamza",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        }
+        let student2 = {
+            Name:"Heema",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        }
+        let student3 = {
+            Name:"Vaibhav",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        }
+        let student4 = {
+            Name:"Harsh",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        }
+
+        let studentList = [student0,student1,student2,student3,student4];
+        console.log(studentList)
+        let myTableBody = document.querySelector("#myTableBody");
+
+        let trs = "";
+        for (i=0; i<studentList.length; i++){
+        
+            trs = trs + ` <tr>
+                <td>${studentList[i].Name}</td>
+                <td>${studentList[i].Roll}</td>
+                <td>${studentList[i].Class}</td>
+                <td>${studentList[i].Marks}</td>
+            </tr>`;
+
+        }
+        myTableBody.innerHTML = trs;
+
+    </script>
+</body>
+</html>

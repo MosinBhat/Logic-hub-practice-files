@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        table{
+            width: 100vw;
+            height: 100vh;
+        }
+        thead{
+            height: 50px;
+            background-color:burlywood;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        tbody{
+            font-size: 1.3rem;
+            background-color:blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <h1>Students</h1>
+    <table border="1px">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Roll No</td>
+                <td>Class</td>
+                <td>Marks</td>
+            </tr>
+        </thead>
+        <tbody id="myTableBody">
+            <tr>
+                <td>Mosin</td>
+                <td>13</td>
+                <td>7th</td>
+                <td>540</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <script>
+        //array of objects
+        let studentList = [{
+            Name:"Mosin",
+            Roll: 7,
+            Class: "10th",
+            Marks: 464,
+        },
+
+        {
+            Name:"Hamza",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        },
+        {
+            Name:"Heema",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        },
+        {
+            Name:"Vaibhav",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        },
+        {
+            Name:"Harsh",
+            Roll: 2,
+            Class: "7th",
+            Marks: 230
+
+        }]
+
+        let trs = "";
+        //for of loop fro array target element
+        for (let student of studentList){
+
+            trs = trs + ` <tr>
+                            <td>${student.Name}</td>
+                            <td>${student.Roll}</td>
+                            <td>${student.Class}</td>
+                            <td>${student.Marks}</td>
+                          </tr>`
+
+        }
+        //for in loop for array target index
+        for (let i in studentList){
+
+            trs = trs + ` <tr>
+                            <td>${studentList[i].Name}</td>
+                            <td>${studentList[i].Roll}</td>
+                            <td>${studentList[i].Class}</td>
+                            <td>${studentList[i].Marks}</td>
+                          </tr>`
+
+        }
+        //forEach function
+        studentList.forEach(callback)
+        function callback(elementOfArray,indexOfArray,arrayItSelf){
+
+            trs = trs + ` <tr>
+                            <td>${elementOfArray.Name}</td>
+                            <td>${elementOfArray.Roll}</td>
+                            <td>${elementOfArray.Class}</td>
+                            <td>${elementOfArray.Marks}</td>
+                          </tr>`
+
+        }
+
+        //forEach arrow annonymous function
+        studentList.forEach((ele,ind,arr) =>{
+                      trs = trs + ` <tr>
+                            <td>${ind}: ${ele.Name}</td>
+                            <td>${ind}: ${ele.Roll}</td>
+                            <td>${ind}: ${ele.Class}</td>
+                            <td>${ind}: ${ele.Marks}</td>
+                          </tr>`
+
+        })
+        let myTableBody = document.querySelector("#myTableBody");
+        myTableBody.innerHTML = trs;
+
+
+
+
+    </script>
+</body>
+</html>

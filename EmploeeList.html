@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table{
+            width: 100%;
+            height: 100vh;
+        }
+        table>thead{
+            height: 50px;
+            background-color:burlywood;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        table>tbody{
+            font-size: 1.3rem;
+            background-color:blanchedalmond;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="txtName" placeholder="Name">
+        <input type="text" id="txtId" placeholder="ID">
+        <input type="text" id="txtGender" placeholder="Gender">
+        <input type="text" id="txtSalary" placeholder="Salary">
+        <button onclick="employeeInput()">Save</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Id</td>
+                <td>Gender</td>
+                <td>Salary</td>
+            </tr>
+        </thead>
+        <tbody id="employeeData">
+            
+
+        </tbody>
+    </table>
+    <script>
+
+        let employeeList = [{
+
+            name: "Mosin",
+            id: 1,
+            gender: "Male",
+            salary: 70000,
+
+        },
+        {
+
+            name: "Hamza",
+            id: 2,
+            gender: "Male",
+            salary: 90000,
+
+        },
+        {
+
+            name: "Harsh",
+            id: 3,
+            gender: "Male",
+            salary: 70000,
+
+        },
+        {
+
+            name: "Heema",
+            id: 4,
+            gender: "Female",
+            salary: 50000,
+
+        },
+        {
+
+            name: "Sanjana",
+            id: 5,
+            gender: "Female",
+            salary: 30000,
+
+        },
+        {
+
+            name: "Harish",
+            id: 6,
+            gender: "Male",
+            salary: 7000,
+
+        }];
+
+        function loadEmployees(){
+        let employeeData = document.getElementById("employeeData");
+        let trList = "";
+        for (let employee of employeeList){
+
+            trList = trList + `
+                <tr>
+                    <td>${employee.name}</td>    
+                    <td>${employee.id}</td>    
+                    <td>${employee.gender}</td>    
+                    <td>${employee.salary}</td>    
+                </tr>
+            
+            
+            `
+        employeeData.innerHTML = trList;
+        
+        }}
+        loadEmployees();
+
+        function employeeInput(){
+            let txtName = document.getElementById("txtName")
+            let txtId = document.getElementById("txtId")
+            let txtGender = document.getElementById("txtGender")
+            let txtSalary = document.getElementById("txtSalary")
+
+            let name = txtName.value;
+            let id = txtId.value;
+            let gender = txtGender.value;
+            let salary = txtSalary.value;
+
+            let newEmployee = {
+
+                name: name,
+                id: id,
+                gender: gender,
+                salary: salary,
+
+            }
+            
+            employeeList.push(newEmployee);
+            loadEmployees();
+        }
+
+
+
+    </script>
+</body>
+</html>

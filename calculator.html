@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="firstInput" value="">
+    <input type="text" id="secondInput" value="">
+    <button onclick="add()"> + </button>
+    <button onclick="sub()"> - </button>
+    <button onclick="mult()"> x </button>
+    <button onclick="div()"> / </button>
+    <button onclick="mod()"> % </button>
+    <input type="text" id="cal">
+
+    
+
+
+    <script>
+        function add(){
+            let firstInput = document.querySelector("#firstInput");
+            let secondInput = document.querySelector("#secondInput")
+            let cal = document.querySelector("#cal")
+
+            let num1 = Number(firstInput.value);
+            let num2 = Number(secondInput.value);
+
+            cal.value = num1 + num2;
+
+            
+        }
+        function sub(){
+            let firstInput = document.querySelector("#firstInput");
+            let secondInput = document.querySelector("#secondInput")
+            let cal = document.querySelector("#cal")
+
+            let num1 = Number(firstInput.value);
+            let num2 = Number(secondInput.value);
+
+            cal.value = num1 - num2;
+
+            
+        }
+        function mult(){
+            let firstInput = document.querySelector("#firstInput");
+            let secondInput = document.querySelector("#secondInput")
+            let cal = document.querySelector("#cal")
+
+            let num1 = Number(firstInput.value);
+            let num2 = Number(secondInput.value);
+
+            cal.value = num1 * num2;
+
+            
+        }
+        function div(){
+            let firstInput = document.querySelector("#firstInput");
+            let secondInput = document.querySelector("#secondInput")
+            let cal = document.querySelector("#cal")
+
+            let num1 = Number(firstInput.value);
+            let num2 = Number(secondInput.value);
+
+            cal.value = num1 / num2;
+
+            
+        }
+        function mod(){
+            let firstInput = document.querySelector("#firstInput");
+            let secondInput = document.querySelector("#secondInput")
+            let cal = document.querySelector("#cal")
+
+            let num1 = Number(firstInput.value);
+            let num2 = Number(secondInput.value);
+
+            cal.value = num1 % num2;
+
+            
+        }
+
+    </script>
+</body>
+</html>
