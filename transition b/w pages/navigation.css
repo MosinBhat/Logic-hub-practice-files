@@ -1,0 +1,87 @@
+ body{
+            background-color: bisque;
+        }
+        @view-transition{
+            navigation: auto;
+        }
+        ::view-transition-old(heading){
+            animation-duration: 2s;
+            animation-name: slideOut;
+        }
+        ::view-transition-new(heading){
+            animation-duration: 2s;
+            animation-name: slideIn;
+            
+        }
+        /* act as old and new */
+        /* ::view-transition-group(root){
+            animation-duration: 3s;
+        } */
+
+
+        /* using translate slide style */
+        /* @keyframes slideOut {
+         from{
+             transform: translateX(0);
+         }
+         to{
+             transform: translateX(-100%);
+         }    
+        }
+
+        @keyframes slideIn {
+            from{
+                transform: translateX(100%);
+            }
+            to{
+                transform: translateX(0);
+            }
+        } */
+
+
+        /* using scale and opacity */
+
+        @keyframes slideOut {
+         from{
+             transform: scale(1.0);
+             opacity: 1;
+         }
+         to{
+             transform: scale(1.5);
+             opacity: 0;
+         }    
+        }
+
+        @keyframes slideIn {
+            from{
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to{
+                transform: scale(1.0);
+                opacity: 1;
+            }
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav{
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+
+        }
+        .nav-item, .nav-item>a{
+            font-size: 1.4rem;
+            list-style: none;
+            text-decoration: none;
+            color: blueviolet;
+        }
+        h1{
+            view-transition-name: heading;
+        }
