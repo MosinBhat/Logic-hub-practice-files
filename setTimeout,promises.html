@@ -10,10 +10,29 @@
 
     <script>
 
-        console.log("immediate print")
-        setTimeout(()=>{
-            console.log("after section this will be printed")
-        }, 5000);
+        // console.log("immediate print")
+        // setTimeout(()=>{
+        //     console.log("after section this will be printed")
+        // }, 5000);
+
+
+        let wow = new Promise((resolve,reject)=>{
+            let success = false;
+            if(success){
+                console.log("resolved")
+                resolve("fullfilled")
+            }
+            else{
+                console.log("rejected")
+                reject("rejected")
+            }
+        })
+        wow.then((passed)=>{
+            console.log(passed)
+        }).catch((failed)=>{
+            console.log(failed)
+        })
+        
     </script>
 </body>
 </html>
