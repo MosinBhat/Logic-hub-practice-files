@@ -66,6 +66,7 @@
           <td>Last Name</td>
           <td>Contact</td>
           <td>Salary <button onclick="ascOrderS()">Up</button><button onclick="descOrderS()">Down</button></td>
+          <td>Details</td>
         </tr>
       </thead>
       <tbody id="tBody">
@@ -122,20 +123,21 @@
       },
       ]
 
-      function insertEmployees(){
+      function insertEmployees(emplist){
         let tRow = "";
-        for(let singleData of employeeData){
+        for(let singleData of emplist){
             tRow += 
             `<tr>
                 <td>${singleData.firstName}</td>
                 <td>${singleData.lastName}</td>
                 <td>${singleData.contact}</td>
                 <td>${singleData.salary}</td>
+                <td><a href="urlLocationAndAddressManipulation.html?firstName=${singleData.firstName}">Edit</a></td>
             </tr>` 
         }
         tBody.innerHTML = tRow;
       }
-      insertEmployees()
+      insertEmployees(employeeData)
 
       function getemployee(){
         let newEmp = {
@@ -149,40 +151,42 @@
 
       function addEmployee(){
         employeeData.splice(inputIndex.value,0,getemployee())
-        insertEmployees()
+        insertEmployees(employeeData)
       }
       function removeEmployee(){
         employeeData.splice(inputIndex.value,1)
-        insertEmployees()
+        insertEmployees(employeeData)
       }
       //object sorting by salary(number)
       function ascOrderS(){
         employeeData.sort((a,b)=> a.salary - b.salary);
-        insertEmployees()
+        insertEmployees(employeeData)
       }
       function descOrderS(){
         employeeData.sort((a,b)=> b.salary - a.salary);
-        insertEmployees()
+        insertEmployees(employeeData)
       }
       //object sorting by name(string)
       function ascOrderN(){
         employeeData.sort((a,b)=> a.firstName.localeCompare(b.firstName));
-        insertEmployees()
+        insertEmployees(employeeData)
       }
       function descOrderN(){
         employeeData.sort((a,b)=> b.firstName.localeCompare(a.firstName));
-        insertEmployees()
+        insertEmployees(employeeData)
       }
 
 
 
 
       //search using filter and event handling
-      search.addEventListener("change", (change) => {
+      search.addEventListener("input", (change) => {
         let searchFor = change.target.value;
-        let searchRe = employeeData.filter((empp)=> empp.firstName.startsWith(searchFor))
-        employeeData = searchRe;
-        insertEmployees();
+        let searchRe = employeeData.filter((empp)=>{
+          return empp.firstName.toLowerCase().startsWith(searchFor.toLowerCase())
+        });
+
+        insertEmployees(searchRe);
       } )
       // employeeData.filter(...) goes through each element of the employeeData array.
       // For every element, it runs the function you provide.

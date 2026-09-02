@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Mosin Bhat",
+        "id": 1,
+        "gender": "male",
+        "parentage": "Shakeel",
+        "photo": "",
+        "contact": 9906042112
+    },
+    {
+        "name": "Hamza Munir Bhat",
+        "id": 2,
+        "gender": "male",
+        "parentage": "Munir",
+        "photo": "",
+        "contact": 9906054545
+    },
+    {
+        "name": "Irtiqa Malik",
+        "id": 3,
+        "gender": "female",
+        "parentage": "malik",
+        "photo": "",
+        "contact": 111255589
+    },
+    {
+        "name": "Harsh Parihar",
+        "id": 4,
+        "gender": "Male",
+        "parentage": "Parihar",
+        "photo": "",
+        "contact": 464774111
+    },
+    {
+        "name": "Vaibhav Sharma",
+        "id": "5",
+        "gender": "male",
+        "parentage": "Sharma",
+        "contact": "78798956"
+    }
+]

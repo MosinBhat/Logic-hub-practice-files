@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="formin">
+        <h2>Employee Form</h2>
+        <div class="form-grid">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter name" />
+            </div>
+            
+            <div class="field">
+                <label for="id">ID</label>
+                <input type="text" name="id" id="id" placeholder="Enter ID" />
+            </div>
+            <div class="field">
+                <label for="id">Gender</label>
+                <select name="gender" id="gender">
+                    <option value="">select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            
+            <div class="field">
+                <label for="parentage">Parentage</label>
+                <input type="text" name="parentage" id="parentage" placeholder="Enter parentage" />
+            </div>
+            
+            <div class="field">
+                <label for="contact">Contact</label>
+                <input type="text" name="contact" id="contact" placeholder="Enter contact" />
+            </div>
+        </form>
+    </div>
+
+    <button id="addEmployeeBtn">Add Employee</button>
+    <div id="error"></div>
+
+    <h2>Employees</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Gender</th>
+          <th>Parentage</th>
+          <th>Contact</th>
+          <th>Photo</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="employeeTableBody">
+
+      </tbody>
+    </table>
+  </div>
+
+  <script src="employeeService.js">
+
+  </script>
+
+</body>
+</html>
