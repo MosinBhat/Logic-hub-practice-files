@@ -47,6 +47,22 @@
         }
     ];
 
+    let check = new Promise((resolve,reject)=>{
+        let storedEmpList = JSON.parse(localStorage.getItem("empList"));
+
+        if(storedEmpList){
+            resolve("Employee list have stored data")
+        }
+        else{
+            reject("Employee list does not have stored data")
+        }
+
+    });
+
+    check.then((dataCheck)=> console.log(dataCheck)).catch((dataCheck)=> console.log(dataCheck));
+
+
+
 
     function initjsToJSONtoLs(){
 
@@ -99,9 +115,6 @@
   
 
 
-
-
-
     // An event listener onclick, it will push the data to array of objects input by client and will check if all the sections are filled or not
     // Also takes the input from the user/client as form data and shows on the employee list on the webpage
     addEmployeeBtn.addEventListener("click",()=>{
@@ -112,7 +125,6 @@
 
             errorInInput.innerHTML = `<h4> Fill all the above sections</h4>`
             
-
         }
 
         else{
